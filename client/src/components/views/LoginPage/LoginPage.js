@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
 
-function LoginPage() {
+function LoginPage(props) {
 
     const dispatch = useDispatch();
 
@@ -29,6 +29,15 @@ function LoginPage() {
         }
 
         dispatch(loginUser(body))
+            .then(response =>{
+                if(response.payload.loginSuccess){
+                    props.history.push('/') // react 에서의 페이지 이동 코드
+                } else{
+                    alert('Error!');
+                }
+            })
+        // 완료가 잘 되었을 경우 이동
+
 
     }
 

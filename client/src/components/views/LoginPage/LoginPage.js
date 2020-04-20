@@ -33,7 +33,7 @@ function LoginPage(props) {
                 if(response.payload.loginSuccess){
                     props.history.push('/') // react 에서의 페이지 이동 코드
                 } else{
-                    alert('Error!');
+                    alert('Error!!');
                 }
             })
         // 완료가 잘 되었을 경우 이동

@@ -2,7 +2,20 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../_actions/user_action';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import ReactDOM from 'react-dom';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+
+        margin: theme.spacing(1),
+        width: '500',
+
+    },
+}));
 
 function LoginPage(props) {
 
@@ -30,11 +43,11 @@ function LoginPage(props) {
         }
 
         dispatch(loginUser(body))
-            .then(response =>{
-                if(response.payload.loginSuccess){
+            .then(response => {
+                if (response.payload.loginSuccess) {
                     props.history.push('/') // react 에서의 페이지 이동 코드
-                } else{
-                    alert('Error!!');
+                } else {
+                    alert('이메일 혹은 비밀번호를 다시 확인해 주세요.');
                 }
             })
         // 완료가 잘 되었을 경우 이동
@@ -42,27 +55,28 @@ function LoginPage(props) {
 
     }
 
+    const classes = useStyles();
     return (
+
         <div style={{
             display: 'flex', justifyContent: 'center', alignItems: 'center',
-            width: '100%', height: '100vh'
+            width: '400', height: '100vh'
         }}>
 
-            <form style={{ display: 'flex', flexDirection: 'column' }}
+            <form className={classes.root} style={{ display: 'flex', flexDirection: 'column' }}
                 onSubmit={onSubmitHandler}
             >
-                <label>Email</label>
-                <input type="email" value={Email} onChange={onEmailHandler} />
-                <label>Password</label>
-                <input type="password" value={Password} onChange={onPasswordHandler} />
+                <TextField id="standard-basic" label="이메일" type="email" value={Email} onChange={onEmailHandler} />
+                <TextField id="standard-basic" label="비밀번호" type="password" value={Password} onChange={onPasswordHandler} />
+                
                 <br />
-                <button>
+                <Button variant="contained" type="submit" color="primary" onSubmit={onSubmitHandler}>
                     Login
-                </button>
+                </Button>
             </form>
 
         </div>
-    )
+    );
 }
 
 export default withRouter(LoginPage);

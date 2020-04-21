@@ -1,5 +1,6 @@
 import React,{useEffect} from 'react'
 import axios from 'axios'
+import {withRouter} from 'react-router-dom'
 
 function LandingPage(props) {
 
@@ -14,6 +15,7 @@ function LandingPage(props) {
         .then(response => {
             if(response.data.success){
                 props.history.push('/login')
+                // history는 react-router-dom 을 이용하여 쓰고 있는 것이다.
             }else{
                 alert('로그아웃 실패')
             }
@@ -34,4 +36,4 @@ function LandingPage(props) {
     )
 }
 
-export default LandingPage;
+export default withRouter(LandingPage);

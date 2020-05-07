@@ -4,6 +4,8 @@
 
 * React와 Node.js 를 활용하여 웹 기반의 메신저 프로그램을 만듭니다.
 
+![](https://i.imgur.com/4j7R1bn.png)
+
 ------
 
 * **실행방법**

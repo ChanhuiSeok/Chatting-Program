@@ -14,19 +14,29 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import CardMedia from '@material-ui/core/CardMedia';
+import { palette } from '@material-ui/system';
 
 const useStyles = makeStyles((theme) => ({
+    root:{
+    },
     paper: {
       marginTop: theme.spacing(8),
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
     },
+    media: {
+      marginTop:50,
+      width: 500,
+      height: 68,
+      marginBottom: 30,
+    },
     avatar: {
       margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
+      //backgroundColor: theme.palette.secondary.main,
     },
     form: {
       width: '100%', // Fix IE 11 issue.
@@ -111,14 +121,17 @@ function RegisterPage(props) {
     const classes = useStyles();
 
     return (
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="xs" className={classes.root}>
               <CssBaseline />
               <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                  <LockOutlinedIcon />
-                </Avatar>
+                
+                <CardMedia
+                className={classes.media}
+                  image="/login_logo.png"
+                  title="CODECHAT"
+                />
                 <Typography component="h1" variant="h5">
-                  Messenger Sign Up
+                  
                 </Typography>
                 <form className={classes.form} noValidate onSubmit={onSubmitHandler}>
                     <Grid item xs={12}>

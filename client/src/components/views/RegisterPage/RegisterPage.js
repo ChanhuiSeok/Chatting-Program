@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
       marginTop:50,
-      width: 500,
-      height: 68,
+      width: 300,
+      height: 85,
       marginBottom: 30,
     },
     avatar: {
@@ -127,7 +127,7 @@ function RegisterPage(props) {
                 
                 <CardMedia
                 className={classes.media}
-                  image="/login_logos.png"
+                  image="/login_logo.png"
                   title="CODECHAT"
                 />
                 <Typography component="h1" variant="h5">

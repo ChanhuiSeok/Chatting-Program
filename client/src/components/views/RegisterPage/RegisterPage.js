@@ -127,7 +127,7 @@ function RegisterPage(props) {
                 
                 <CardMedia
                 className={classes.media}
-                  image="/login_logo.png"
+                  image="/login_logos.png"
                   title="CODECHAT"
                 />
                 <Typography component="h1" variant="h5">
